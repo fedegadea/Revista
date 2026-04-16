@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emilia Itza — Administración</title>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body class="admin-body">
+
+  <nav class="admin-nav">
+    <div class="admin-nav-logo">
+      Emilia Itza
+      <span class="admin-badge">Admin</span>
+    </div>
+    <div class="admin-nav-links">
+      <button class="admin-nav-link active" data-view="articles" id="navArticles">Artículos</button>
+      <button class="admin-nav-link" data-view="new" id="navNew">Nuevo artículo</button>
+      <a href="../index.html" target="_blank" class="admin-view-site">Ver revista →</a>
+    </div>
+  </nav>
+
+  <div class="admin-main">
+
+    <div class="admin-stats" id="adminStats"></div>
+
+    <!-- VIEW: LIST -->
+    <div class="admin-view active" id="viewArticles">
+      <div class="admin-table-header">
+        <h2 class="admin-table-title">Artículos</h2>
+        <button class="btn-primary" id="btnNewArticle">+ Nuevo artículo</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Artículo</th>
+              <th>Categoría</th>
+              <th>Fecha</th>
+              <th>Estado</th>
+              <th>Dest.</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="adminTableBody"></tbody>
+        </table>
+        <div class="table-empty" id="tableEmpty" style="display:none">No hay artículos cargados aún.</div>
+      </div>
+    </div>
+
+    <!-- VIEW: FORM -->
+    <div class="admin-view" id="viewForm">
+      <div class="form-header">
+        <h2 class="form-view-title" id="formTitle">Nuevo artículo</h2>
+        <p class="form-view-sub">Completá los campos y publicá en la revista</p>
+      </div>
+
+      <form id="articleForm" novalidate autocomplete="off">
+        <input type="hidden" id="f-id"/>
+        <div class="form-layout">
+          <div>
+            <div class="form-section">
+              <div class="form-section-title">Contenido</div>
+              <div class="field">
+                <label>Título *</label>
+                <input type="text" id="f-title" placeholder="Título del artículo" required/>
+              </div>
+              <div class="field">
+                <label>Copete / Resumen *</label>
+                <textarea id="f-excerpt" rows="2" placeholder="Breve descripción que aparece en las tarjetas…" required></textarea>
+              </div>
+              <div class="field">
+                <label>Cuerpo de la nota *</label>
+                <textarea id="f-content" rows="10" placeholder="Escribí el artículo completo aquí. Podés separar por párrafos con Enter." required></textarea>
+              </div>
+            </div>
+            <div class="form-section">
+              <div class="form-section-title">Imagen</div>
+              <div class="field">
+                <label>URL de imagen</label>
+                <input type="url" id="f-image" placeholder="https://…"/>
+                <p class="field-hint">Pegá una URL de imagen. Recomendado: 1200×700px.</p>
+                <img id="imgPreview" class="img-preview" src="" alt="Preview"/>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="form-section">
+              <div class="form-section-title">Publicación</div>
+              <div class="field">
+                <label>Categoría *</label>
+                <select id="f-category" required>
+                  <option value="">Seleccionar…</option>
+                  <option value="cultura">Cultura</option>
+                  <option value="sociedad">Sociedad</option>
+                  <option value="economia">Economía</option>
+                  <option value="gastronomia">Gastronomía</option>
+                  <option value="turismo">Turismo</option>
+                  <option value="arte">Arte</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Fecha</label>
+                <input type="date" id="f-date"/>
+              </div>
+              <div class="field">
+                <label>Estado</label>
+                <select id="f-status">
+                  <option value="published">Publicado</option>
+                  <option value="draft">Borrador</option>
+                </select>
+              </div>
+              <div class="field">
+                <label class="toggle-wrap">
+                  <input type="checkbox" id="f-featured"/>
+                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                  <span class="toggle-text">Destacar en portada</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn-primary" id="submitBtn">Publicar artículo</button>
+              <button type="button" class="btn-ghost" id="cancelBtn">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="confirm-overlay" id="confirmOverlay" style="display:none">
+    <div class="confirm-box">
+      <div class="confirm-icon">⚠</div>
+      <p class="confirm-msg" id="confirmMsg">¿Confirmás esta acción?</p>
+      <div class="confirm-actions">
+        <button class="btn-ghost" id="confirmNo" style="padding:9px 20px">Cancelar</button>
+        <button class="btn-danger" id="confirmYes">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-notification" id="toastEl"></div>
+
+  <script src="../app.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
