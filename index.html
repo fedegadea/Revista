@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Emilia Itza — Revista digital de producción nacional uruguaya. Colonia del Sacramento."/>
+  <title>Emilia Itza — Revista Digital</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <span class="topbar-location">📍 Colonia del Sacramento, Uruguay</span>
+      <span class="topbar-date" id="topDate"></span>
+      <a href="admin/index.html" class="topbar-admin">Administración</a>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner container">
+      <div class="header-logo">
+        <img src="logo.png" alt="Emilia Itza" class="logo-img" onerror="this.style.display='none'; document.getElementById('logoText').style.display='block'"/>
+        <div class="logo-text" id="logoText" style="display:none">Emilia Itza</div>
+      </div>
+      <div class="header-tagline">Producción Nacional Uruguaya</div>
+    </div>
+    <div class="header-rule"></div>
+  </header>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="nav-links" id="navLinks">
+        <a href="#" class="nav-link active" data-cat="">Todo</a>
+        <a href="#" class="nav-link" data-cat="cultura">Cultura</a>
+        <a href="#" class="nav-link" data-cat="sociedad">Sociedad</a>
+        <a href="#" class="nav-link" data-cat="economia">Economía</a>
+        <a href="#" class="nav-link" data-cat="gastronomia">Gastronomía</a>
+        <a href="#" class="nav-link" data-cat="turismo">Turismo</a>
+        <a href="#" class="nav-link" data-cat="arte">Arte</a>
+      </div>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="container main-layout">
+
+    <section class="news-section">
+      <div id="featuredArticle" class="featured-article"></div>
+      <div class="section-divider">
+        <span class="section-label">Últimas noticias</span>
+      </div>
+      <div class="news-grid" id="newsGrid"></div>
+      <div class="empty-state" id="emptyState" style="display:none">
+        <p>No hay artículos publicados aún.</p>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <div class="sidebar-ad-block">
+        <div class="ad-label">Publicidad</div>
+        <div class="ad-promo">
+          <div class="ad-promo-title">Anunciá en<br/>Emilia Itza</div>
+          <p class="ad-promo-desc">Llegá a miles de lectores uruguayos. Espacios publicitarios disponibles en nuestra revista digital.</p>
+          <a href="https://wa.me/59895620519?text=Hola%20Emilia%2C%20me%20interesa%20anunciar%20en%20la%20revista" target="_blank" class="ad-cta-btn">
+            Consultar por WhatsApp
+          </a>
+        </div>
+      </div>
+      <div class="sidebar-widget">
+        <h3 class="widget-title">Secciones</h3>
+        <ul class="widget-cats" id="widgetCats"></ul>
+      </div>
+      <div class="sidebar-widget">
+        <h3 class="widget-title">También te puede interesar</h3>
+        <div id="sidebarRecents"></div>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- PUBLICIDAD BANNER -->
+  <section class="ad-banner-section">
+    <div class="container">
+      <div class="ad-banner">
+        <div class="ad-banner-content">
+          <div class="ad-banner-text">
+            <span class="ad-banner-tag">Espacio publicitario</span>
+            <h2 class="ad-banner-title">Tu marca frente a lectores de Colonia y todo Uruguay</h2>
+            <p class="ad-banner-sub">Espacios en home, artículos y newsletter. Formatos a medida para tu negocio.</p>
+          </div>
+          <a href="https://wa.me/59895620519?text=Hola%20Emilia%2C%20quiero%20informaci%C3%B3n%20sobre%20publicidad%20en%20la%20revista" target="_blank" class="ad-banner-btn">
+            Consultá disponibilidad
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">Emilia Itza</div>
+        <p>Revista digital de producción nacional uruguaya.<br/>Colonia del Sacramento, Uruguay.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Secciones</h4>
+        <ul>
+          <li><a href="#">Cultura</a></li>
+          <li><a href="#">Sociedad</a></li>
+          <li><a href="#">Economía</a></li>
+          <li><a href="#">Gastronomía</a></li>
+          <li><a href="#">Turismo</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/59895620519" target="_blank">WhatsApp</a></li>
+          <li><a href="admin/index.html">Administración</a></li>
+        </ul>
+        <div class="footer-ad-link">
+          <a href="https://wa.me/59895620519?text=Hola%20Emilia%2C%20quiero%20anunciar%20en%20la%20revista" target="_blank">
+            Anunciá con nosotros →
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2025 Emilia Itza · Todos los derechos reservados · Colonia del Sacramento, Uruguay</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal" id="articleModal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
